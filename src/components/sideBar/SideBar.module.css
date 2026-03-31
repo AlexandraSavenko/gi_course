@@ -1,0 +1,6 @@
+.listWrap{
+    height: calc(100vh - 32px) ;
+    max-width: 300px;
+    background-color: var(--color-bg-sidebar);
+    padding: 1rem;
+}

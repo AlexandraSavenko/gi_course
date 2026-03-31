@@ -1,15 +1,36 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+   /* TEXT */
+  --color-text-primary: #1b1919;
+  --color-text-secondary: #483d3c;
+
+  /* BACKGROUNDS */
+  --color-bg-main: #eff7d3;
+  --color-bg-sidebar: #a7b99e;
+  --color-bg-accent: #aed09e;
+
+  /* PRIMARY (main UI color) */
+  --color-primary: #6b8c42;
+  --color-primary-hover: #535a3b;
+
+  /* SECONDARY (support color) */
+  --color-secondary: #639a67;
+  --color-secondary-hover: #5a3921;
+
+  /* ACCENTS */
+  --color-accent-blue: #205d67;
+  --color-accent-warm: #d9bf77;
+
+  /* WARNING / ERROR */
+  --color-danger: #ac0c0c;
+
+  /* SURFACES */
+  --color-card: #ffffb5;
+  --color-border: #483d3c;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -50,11 +71,19 @@
   }
 }
 
-body {
-  margin: 0;
+body{
+  color: var(--color-text-primary)
 }
 
-#root {
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+/* #root {
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
@@ -64,48 +93,5 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
+} */
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}

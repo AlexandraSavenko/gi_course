@@ -1,0 +1,9 @@
+.contentWrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentWrap main {
+    flex: 1;
+    height: calc(100vh - 32px);
+}
