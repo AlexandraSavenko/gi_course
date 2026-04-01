@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Intro />} />
           <Route path="/games" element={<TaskArea />}>
-            <Route path=":task1" element={<TaskOne />} />
+            <Route path="task1" element={<TaskOne />} />
           </Route>
         </Routes>
       </Suspense>

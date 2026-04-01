@@ -1,3 +1,4 @@
 .taskArea {
     background-color: var(--color-card);
+    height: 100%;
 }
