@@ -6,6 +6,7 @@
   position: relative;
   width: 300px;
   height: 300px;
+  margin: 0 auto;
 }
 .letter {
   position: absolute;
@@ -14,14 +15,20 @@
   background-color: wheat;
   padding: 0 8px;
   border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 
   transform-origin: 0 0;
 
-  transform: rotate(calc(360deg / var(--total) * var(--i))) translate(120px)
+  transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--i))) translate(120px)
     rotate(calc(-360deg / var(--total) * var(--i)));
 }
 
 .list {
+    margin: 0 auto;
+    width: fit-content;
   background-color: white;
   padding: 1rem;
   display: flex;
@@ -37,4 +44,16 @@
 .box {
   width: 1rem;
   height: 2rem;
+}
+
+.wordBank {
+    background-color: white;
+    width: 400px;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+
+}
+.word{
+    cursor: pointer;
 }
