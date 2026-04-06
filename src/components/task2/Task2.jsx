@@ -1,14 +1,14 @@
 import { useState } from "react";
 import css from "./Task2.module.css";
-const words = ["consider", "enjoy", "finish"];
+import ButtonMax from "../buttonMax/ButtonMax";
+const words = ["consider", "enjoy", "finish", "avoid", "keep", "deny"];
 const Task2 = () => {
   const [selected, setSelected] = useState("");
   const [usedIndex, setUsedIndex] = useState([]);
-  //   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
-  //   const wordArray = [...words];
+  const [showHint, setShowHint] = useState(false)
 
   const generatRandomInt = () => {
     return Math.floor(Math.random() * words.length);
@@ -34,21 +34,31 @@ const Task2 = () => {
     setShowMessage(true);
     if (answer.trim().toLowerCase() === selected.toLowerCase()) {
       setSelected("");
+      setAnswer("")
       setMessage(`Well done!`);
     } else {
       setMessage(`Sorry, but this word was ${selected}`);
     }
   };
+ 
+  const onHint = () => {
+setShowHint(true)
+setTimeout(() => {setShowHint(false)}, 2000)
+  }
   return (
     <div className={css.wrap}>
-      <ul>
+      <ul className={css.list}>
         {words.map((el, index) => (
           <li key={index}>{el !== selected ? el : ""}</li>
         ))}
       </ul>
-      <button onClick={onStart}>Start</button>
-      <input value={answer} onChange={(e) => setAnswer(e.target.value)} type="text" />
-      <button onClick={onCheck}>Check</button>
+      <ButtonMax onClick={onStart} value={"Start"} />
+      <input className={css.input} disabled={selected === ""} value={answer} onChange={(e) => setAnswer(e.target.value)} type="text" />
+      {selected && <div>
+        <ButtonMax onClick={onCheck} value={"Check"}/>
+        <ButtonMax onClick={onHint} value={"Give me a hint"}/>
+      </div> }
+      {showHint && <p>{selected}</p> }
       {showMessage && <p>{message}</p>}
     </div>
   );

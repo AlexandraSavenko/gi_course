@@ -1,0 +1,17 @@
+.btn{
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn:hover{
+    background-color: gray;
+}
+
+.btn:active{
+    transform: scale(0.97)
+}
