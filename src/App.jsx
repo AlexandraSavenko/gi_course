@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import Intro from "./components/intro/Intro";
 import TaskArea from "./components/taskArea/TaskArea";
 import TaskOne from "./components/taskOne/TaskOne";
+import Task2 from "./components/task2/Task2";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Intro />} />
           <Route path="/games" element={<TaskArea />}>
             <Route path="task1" element={<TaskOne />} />
+            <Route path="task2" element={<Task2/>}/>
           </Route>
         </Routes>
       </Suspense>
