@@ -4,27 +4,13 @@
 
 .circle {
   position: relative;
+      display: flex;
+    gap: 8px;
   width: 300px;
   height: 300px;
   margin: 0 auto;
 }
-.letter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background-color: wheat;
-  padding: 0 8px;
-  border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
 
-  transform-origin: 0 0;
-
-  transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--i))) translate(120px)
-    rotate(calc(-360deg / var(--total) * var(--i)));
-}
 
 .list {
     margin: 0 auto;
@@ -35,7 +21,7 @@
   gap: 0.5rem;
 }
 
-.gap {
+/* .gap {
   background-color: wheat;
   padding: 0 8px;
   border-radius: 8px;
@@ -44,7 +30,7 @@
 .box {
   width: 1rem;
   height: 2rem;
-}
+} */
 
 .wordBank {
     background-color: white;
