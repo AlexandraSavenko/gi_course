@@ -1,15 +1,10 @@
 import { useDroppable } from '@dnd-kit/core'
-import React from 'react'
+import css from './DroppableBox.module.css'
 
 const DroppableBox = ({box, placedLetter}) => {
     const {setNodeRef, isOver} = useDroppable({id: box.id})
   return (
-    <div ref={setNodeRef} style={{
-        background: isOver ? "#ddd" : "white",
-        width: 50,
-        height: 50,
-        border: "1px solid black",
-      }}>
+    <div ref={setNodeRef} className={`${css.box} ${isOver ? css.over : ""}`}>
       {placedLetter?.value || ""}
     </div>
   )

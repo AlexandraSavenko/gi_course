@@ -3,12 +3,12 @@ import css from "./TaskOne.module.css";
 import { closestCenter, DndContext } from "@dnd-kit/core";
 import DraggableLetter from "../draggableLetter/DraggableLetter";
 import DroppableBox from "../droppableBox/DroppableBox";
-  const attribute = ["consider", "enjoy", "finish"];
+const attribute = ["consider", "enjoy", "finish"];
 const TaskOne = () => {
   const [selected, setSelected] = useState("");
-const [words, setWords] = useState(attribute)
+  const [words, setWords] = useState(attribute);
   const [placed, setPlaced] = useState({});
-const [done, setDone] = useState([])
+  const [done, setDone] = useState([]);
   const wordArray = useMemo(() => {
     return selected
       ? selected.split("").map((el, index) => ({ id: `l-${index}`, value: el }))
@@ -22,8 +22,9 @@ const [done, setDone] = useState([])
     }));
   }, [wordArray]);
   const mixed = useMemo(() => {
-    return [...wordArray].sort((a, b) => {const res = a.value.localeCompare(b.value)
-      return res !== 0 ? res : a.id.localeCompare(b.id)
+    return [...wordArray].sort((a, b) => {
+      const res = a.value.localeCompare(b.value);
+      return res !== 0 ? res : a.id.localeCompare(b.id);
     });
   }, [wordArray]);
   const availableLetters = mixed.filter(
@@ -43,12 +44,27 @@ const [done, setDone] = useState([])
     }
   };
 
-  useEffect(() => console.log(availableLetters), [availableLetters])
+  useEffect(() => {
+    console.log("availableLetters", availableLetters)
+  }, [availableLetters]);
+    useEffect(() => {
+    console.log("selected", selected)
+  }, [selected]);
+    useEffect(() => {
+    console.log("boxes", boxes)
+  }, [boxes]);
+  useEffect(() => {
+    console.log("placed", placed)
+  }, [placed]);
   const handleClickDone = () => {
-setDone(prev => [...prev, selected])
-setWords(prev => [...prev].filter(el => el !== selected))
-setSelected("")
-  }
+    if (availableLetters.length !== 0) {
+      alert("Please, complete the word first!")
+      return};
+    setDone((prev) => prev.includes(selected) ? prev : [...prev, selected]);
+    setWords((prev) => prev.filter((el) => el !== selected));
+    setSelected("");
+    setPlaced({})
+  };
   return (
     <div className={css.wrap}>
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
@@ -69,19 +85,27 @@ setSelected("")
       </DndContext>
       <div>
         <ul className={css.wordBank}>
-        {words.map((el, index) => (
-          <li className={css.word} key={index} onClick={() => setSelected(el)}>
-            {el === selected ? "" : el.split("").sort()}
-          </li>
-        ))}
-      </ul>
-      <ul className={css.wordBank}>
-        {done ? done.map((el, index) => (
-          <li key={index}>{el}</li>
-        )) : <div>...</div> }
-      </ul>
+          {words.map((el, index) => (
+            <li
+              className={css.word}
+              key={index}
+              onClick={() => setSelected(el)}
+            >
+              {el === selected ? "" : el.split("").sort()}
+            </li>
+          ))}
+        </ul>
+        <ul className={css.wordBank}>
+          {done ? (
+            done.map((el, index) => <li key={index}>{el}</li>)
+          ) : (
+            <div>...</div>
+          )}
+        </ul>
       </div>
-      {selected && availableLetters.length === 0 && <button onClick={handleClickDone}>Done</button>}
+      {selected && availableLetters.length === 0 && (
+        <button onClick={handleClickDone}>Done</button>
+      )}
     </div>
   );
 };
