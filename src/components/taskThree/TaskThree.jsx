@@ -1,5 +1,5 @@
 import { useState } from "react";
-import css from "./Task2.module.css";
+import css from "./TaskThree.module.css";
 import ButtonMax from "../buttonMax/ButtonMax";
 const words = ["consider", "enjoy", "finish", "avoid", "keep", "deny"];
 const Task2 = () => {

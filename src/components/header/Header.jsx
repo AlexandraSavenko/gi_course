@@ -9,7 +9,7 @@ const Header = () => {
     <div className={css.header}>
      <button onClick={() => setIsModalOpen(true)} >Menu</button>
       {isModalOpen && <Modal onClose={() => setIsModalOpen(false)}>
-        <Menu/>
+        <Menu onClose={() => setIsModalOpen(false)}/>
         </Modal>}
     </div>
   )
