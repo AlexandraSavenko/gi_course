@@ -1,19 +1,24 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import css from "./TaskOne.module.css";
 import { closestCenter, DndContext } from "@dnd-kit/core";
+import { Link } from 'react-router-dom'
 import DraggableLetter from "../draggableLetter/DraggableLetter";
 import DroppableBox from "../droppableBox/DroppableBox";
-const attribute = ["consider", "enjoy", "finish"];
+import ButtonMax from "../buttonMax/ButtonMax";
+import Modal from "../modal/Modal"
+const attribute = ["enjoy"];
 const TaskOne = () => {
   const [selected, setSelected] = useState("");
   const [words, setWords] = useState(attribute);
   const [placed, setPlaced] = useState({});
   const [done, setDone] = useState([]);
+  //devide selected word into letters
   const wordArray = useMemo(() => {
     return selected
       ? selected.split("").map((el, index) => ({ id: `l-${index}`, value: el }))
       : [];
   }, [selected]);
+  //Creat empty boxes for the letter
   const boxes = useMemo(() => {
     return wordArray.map((el, index) => ({
       id: `b-${index}`,
@@ -21,6 +26,7 @@ const TaskOne = () => {
       filled: false,
     }));
   }, [wordArray]);
+  //Mix the letters of the selected word
   const mixed = useMemo(() => {
     return [...wordArray].sort((a, b) => {
       const res = a.value.localeCompare(b.value);
@@ -30,6 +36,7 @@ const TaskOne = () => {
   const availableLetters = mixed.filter(
     (l) => !Object.values(placed).some((p) => p.id === l.id),
   );
+  
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (!over) return;
@@ -44,18 +51,6 @@ const TaskOne = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("availableLetters", availableLetters)
-  }, [availableLetters]);
-    useEffect(() => {
-    console.log("selected", selected)
-  }, [selected]);
-    useEffect(() => {
-    console.log("boxes", boxes)
-  }, [boxes]);
-  useEffect(() => {
-    console.log("placed", placed)
-  }, [placed]);
   const handleClickDone = () => {
     if (availableLetters.length !== 0) {
       alert("Please, complete the word first!")
@@ -65,6 +60,7 @@ const TaskOne = () => {
     setSelected("");
     setPlaced({})
   };
+  
   return (
     <div className={css.wrap}>
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
@@ -104,8 +100,12 @@ const TaskOne = () => {
         </ul>
       </div>
       {selected && availableLetters.length === 0 && (
-        <button onClick={handleClickDone}>Done</button>
+        <ButtonMax onClick={handleClickDone} value={"Done"} />
+        // <button onClick={handleClickDone}>Done</button>
       )}
+      {words.length === 0 && <div className={css.linkWrap}>
+        <p>You are ready now. Follow the link:</p>
+         <Link to={"/games/task2"}>task 2</Link></div>}
     </div>
   );
 };

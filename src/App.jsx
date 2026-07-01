@@ -6,6 +6,7 @@ import TaskArea from "./components/taskArea/TaskArea";
 import TaskOne from "./components/taskOne/TaskOne";
 import TaskThree from "./components/taskThree/TaskThree";
 import TaskTwo from "./components/taskTwo/TaskTwo";
+import Speaking from "./components/speaking/Speaking";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <Route path="task1" element={<TaskOne />} />
             <Route path="task2" element={<TaskTwo/>}/>
             <Route path="task3" element={<TaskThree/>}/>
-            
+            <Route path="sp" element={<Speaking/>}/>
           </Route>
         </Routes>
       </Suspense>

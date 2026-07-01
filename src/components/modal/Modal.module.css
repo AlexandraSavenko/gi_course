@@ -24,12 +24,7 @@
   height: auto;
   backdrop-filter: blur(40px);
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
-  background: linear-gradient(
-    180deg,
-    var(--light-green) 0%,
-    var(--green) 50%,
-    var(--sand) 100%
-  );
+  background: var(--color-primary)
 }
 
 .errorMess h3 {

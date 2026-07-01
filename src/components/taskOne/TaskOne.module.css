@@ -1,45 +1,52 @@
 .wrap {
-  height: 100%;
+  height: fit-content;
+  margin: 4px;
+  padding: 8px;
 }
 
 .circle {
   position: relative;
-      display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
   width: 300px;
   height: 300px;
   margin: 0 auto;
 }
 
-
 .list {
-    margin: 0 auto;
-    width: fit-content;
+  margin: 0 auto;
+  width: fit-content;
   background-color: white;
-  padding: 1rem;
   display: flex;
-  gap: 0.5rem;
 }
-
-/* .gap {
-  background-color: wheat;
-  padding: 0 8px;
-  border-radius: 8px;
-}
-
-.box {
-  width: 1rem;
-  height: 2rem;
-} */
 
 .wordBank {
-    background-color: white;
-    width: 400px;
-    margin: 1rem auto;
-    padding: 1rem;
-    border-radius: 8px;
-
+  background-color: white;
+  width: 400px;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 8px;
 }
-.word{
-    cursor: pointer;
+.word {
+  cursor: pointer;
+}
+
+
+.linkWrap{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: wheat;
+  width: fit-content;
+  padding: 8px;
+}
+
+.linkWrap a{
+  color: blue;
+  border: 1px solid blue;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 8px auto;
 }

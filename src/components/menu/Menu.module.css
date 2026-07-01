@@ -1,6 +1,8 @@
 .menuBox{
     display: flex;
+    flex-direction: column;
     gap: 8px;
+    overflow: hidden;
 }
 
 .menuBox a {

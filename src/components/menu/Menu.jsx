@@ -8,7 +8,7 @@ const Menu = ({onClose}) => {
       <Link onClick={onClose} to={"/games/task1"}>task 1</Link>
       <Link onClick={onClose} to={"/games/task2"}>task 2</Link>
       <Link onClick={onClose} to={"/games/task3"}>task 3</Link>
-      
+      <Link onClick={onClose} to={"/games/sp"}>Speaking</Link>
     </div>
   )
 }

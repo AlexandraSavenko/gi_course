@@ -52,14 +52,19 @@ setTimeout(() => {setShowHint(false)}, 2000)
           <li key={index}>{el !== selected ? el : ""}</li>
         ))}
       </ul>
-      <ButtonMax onClick={onStart} value={"Start"} />
-      <input className={css.input} disabled={selected === ""} value={answer} onChange={(e) => setAnswer(e.target.value)} type="text" />
-      {selected && <div>
+      <div className={css.startWrap}>
+        <ButtonMax onClick={onStart} value={"Start"} />
+      </div>
+      {selected && <div className={css.workAreaWrap}>
+       <input className={css.input} disabled={selected === ""} value={answer} onChange={(e) => setAnswer(e.target.value)} type="text" />
+      <div className={css.btnWrap}>
         <ButtonMax onClick={onCheck} value={"Check"}/>
         <ButtonMax onClick={onHint} value={"Give me a hint"}/>
-      </div> }
-      {showHint && <p>{selected}</p> }
-      {showMessage && <p>{message}</p>}
+      </div>
+      {showHint && <p className={css.hint}>{selected}</p> }
+      {showMessage && <p>{message}</p>} 
+      </div>} 
+      
     </div>
   );
 };

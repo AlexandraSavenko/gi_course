@@ -15,6 +15,11 @@ const TaskTwo = () => {
         setPosition(prev => ({...prev, 
             bottom: prev.bottom + 10
         }) )
+    }else if(e.key === "ArrowDown"){
+      console.log(e.key)
+        setPosition(prev => ({...prev, 
+            bottom: prev.bottom - 10
+        }) )
     }
 }  
 
