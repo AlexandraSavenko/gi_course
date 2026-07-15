@@ -1,4 +1,3 @@
-import { gerundVerbs, infinitiveVerbs } from "../../data/data";
 import Header from "../header/Header";
 import SideBar from "../sideBar/SideBar";
 import css from "./Layout.module.css";
@@ -8,9 +7,9 @@ const Layout = ({ children }) => {
     <div className={css.layoutWrap}>
         <Header/>
       <div className={css.contentWrap}>
-        <SideBar list={gerundVerbs} />
+        <SideBar type={"gerundVerbs"} />
         <main>{children}</main>
-        <SideBar list={infinitiveVerbs} />
+        <SideBar type={"infinitiveVerbs"} />
       </div>
     </div>
   );

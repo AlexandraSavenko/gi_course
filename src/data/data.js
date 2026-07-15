@@ -1,4 +1,5 @@
-export const gerundVerbs = [
+export const verbList = {
+  gerundVerbs: [
   // A level
   { id: "g1", verb: "enjoy", level: "A", pattern: "gerund" },
   { id: "g2", verb: "finish", level: "A", pattern: "gerund" },
@@ -22,9 +23,8 @@ export const gerundVerbs = [
   { id: "g16", verb: "resent", level: "C", pattern: "gerund" },
   { id: "g17", verb: "contemplate", level: "C", pattern: "gerund" },
   { id: "g18", verb: "acknowledge", level: "C", pattern: "gerund" },
-];
-
-export const infinitiveVerbs = [
+],
+infinitiveVerbs: [
   // A level
   { id: "i1", verb: "want", level: "A", pattern: "infinitive" },
   { id: "i2", verb: "need", level: "A", pattern: "infinitive" },
@@ -48,4 +48,5 @@ export const infinitiveVerbs = [
   { id: "i16", verb: "hesitate", level: "C", pattern: "infinitive" },
   { id: "i17", verb: "claim", level: "C", pattern: "infinitive" },
   { id: "i18", verb: "resolve", level: "C", pattern: "infinitive" },
-];
+]
+}
