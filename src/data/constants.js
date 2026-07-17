@@ -1,8 +1,12 @@
 //Game constants
-const GRAVITY = 0.5;
-const JUMP_FORCE = -12;
-const MOVE_SPEED = 2.5;
-const ENEMY_SPEED = 1;
+export const gameCnst = {
+  gravity: 0.5,
+  jumpForce: -12,
+  moveSpeed: 2.5,
+  enemySpeed: 1,
+  floor: 200
+}
+
 
 //Game state
 export let gameState = {
@@ -14,14 +18,14 @@ export let gameState = {
 };
 
 //Player object
-export let player = {
-  x: 50,
-  y: 300,
+export let playerData = {
+  x: 30,
+  y: 200,
   width: 20,
   height: 20,
   velocityX: 0,
   velocityY: 0,
-  grounded: false,
+  grounded: true,
 };
 
 //Game objects arrays
