@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import css from "./TaskTwo.module.css";
-import { gameCnst, levels, playerData } from "../../data/constants";
-import { checkCollision } from "../../utils/checkColligion";
+import { levels, playerData } from "../../data/constants";
 import TaskTwoWordList from "./TaskTwoWordList";
+import applyKeyboardInput from "../../utils/useKeyboard";
+import movePlayer from "../../utils/movePlayer";
+import handlePlatformCollision from "../../utils/handlePlatformCollision";
+import handleFloor from "../../utils/handleFloor";
 
 const TaskTwo = () => {
   const [player, setPlayer] = useState(playerData);
@@ -17,61 +20,13 @@ const TaskTwo = () => {
     let animationId;
     function update() {
       setPlayer((prev) => {
-        let vx = prev.velocityX;
-        let vy = prev.velocityY;
-        let grounded = prev.grounded;
-        if (keys.current.ArrowLeft) {
-          vx = -gameCnst.moveSpeed;
-        }
-        if (keys.current.ArrowRight) {
-          vx = gameCnst.moveSpeed;
-        }
-        if (!keys.current.ArrowLeft && !keys.current.ArrowRight) {
-          vx = 0;
-        }
-        if (keys.current.Space && grounded) {
-          vy = gameCnst.jumpForce;
-          grounded = false;
-        }
-        vy += gameCnst.gravity;
-        let newY = prev.y + vy;
-        let newX = prev.x + vx;
-        grounded = false;
-         const futurePlayer = {
-            ...prev,
-            x: newX,
-            y: newY
-          }
-        for(const platform of platforms) {
-          if( checkCollision(futurePlayer, platform) ){
-            // console.log("Landing on:", platform)
-            //was the player falling: vy > 0
-            //were the player's feet above the platform? 
-            if(vy > 0 && prev.y + prev.height <= platform.y){
-              newY = platform.y - prev.height;
-            vy = 0;
-            grounded = true;
-            } 
-          }
-        }
-        if (newY >= gameCnst.floor) {
-          newY = gameCnst.floor;
-          vy = 0;
-          grounded = true;
-        }
-        return {
-          ...prev,
-          x: newX,
-          y: newY,
-          velocityX: vx,
-          velocityY: vy,
-          grounded,
-        };
+        let player = applyKeyboardInput(prev, keys)
+        player = movePlayer(player)
+        player = handlePlatformCollision(prev, player, platforms)
+        player = handleFloor(player)
+        return player;
       });
-
-
       animationId = requestAnimationFrame(update);
-    
     }
     update();
     return () => cancelAnimationFrame(animationId);
