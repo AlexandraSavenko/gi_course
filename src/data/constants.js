@@ -4,9 +4,8 @@ export const gameCnst = {
   jumpForce: -12,
   moveSpeed: 2.5,
   enemySpeed: 1,
-  floor: 200
-}
-
+  floor: 480,
+};
 
 //Game state
 export let gameState = {
@@ -20,7 +19,7 @@ export let gameState = {
 //Player object
 export let playerData = {
   x: 30,
-  y: 200,
+  y: 450,
   width: 20,
   height: 20,
   velocityX: 0,
@@ -38,27 +37,32 @@ export let gameObjects = {
 
 //levels
 export const levels = [
-  //level_1
+  //level_
   {
     platforms: [
-      { x: 0, y: 360, width: 400, height: 40, type: "ground" },
-      { x: 500, y: 360, width: 300, height: 40, type: "ground" },
-      { x: 200, y: 280, width: 60, height: 20, type: "floating" },
-      { x: 300, y: 240, width: 60, height: 20, type: "floating" },
-      { x: 600, y: 280, width: 80, height: 20, type: "floating" },
+      { x: 0, y: 420, width: 200, height: 80, type: "ground" },
+      { x: 300, y: 420, width: 200, height: 80, type: "ground" },
+      { x: 150, y: 340, width: 180, height: 40, type: "floating" },
+      { x: 360, y: 300, width: 120, height: 40, type: "floating" },
+      { x: 200, y: 200, width: 120, height: 40, type: "floating" },
+      { x: 20, y: 200, width: 120, height: 40, type: "floating" },
+      { x: 150, y: 100, width: 200, height: 40, type: "floating" },
+      { x: 400, y: 100, width: 100, height: 40, type: "floating" },
     ],
     enemies: [
-        {x: 250, y: 344, type: 'brown'},
-        {x: 550, y: 344, type: 'brown'}
+      { x: 250, y: 344, type: "brown" },
+      { x: 550, y: 344, type: "brown" },
     ],
     rightWords: [
-        {x: 220, y: 260},
-        {x: 320, y: 240},
-        {x: 620, y: 260}
+      { x: 420, y: 380 },
+      { x: 220, y: 260 },
+      { x: 420, y: 160 },
+      { x: 20, y: 160 },
+      { x: 240, y: 60 },
     ],
     wrongWords: [
-        {x: 350, y: 220},
-        {x: 750, y: 240},
-    ]
+      { x: 350, y: 220 },
+      { x: 750, y: 240 },
+    ],
   },
 ];

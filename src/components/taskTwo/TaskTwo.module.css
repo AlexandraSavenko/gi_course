@@ -1,16 +1,43 @@
 .gameArea {
-    width: 700px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background-color: black;
     margin: 10px auto;
     position: relative;
+    z-index: 1;
 }
 
 .ship{
     width: 20px;
     height: 20px;
-    background-color: white;
+    background-color: green;
     position: absolute;
     left: var(--x);
-    top: var(--y)
+    top: var(--y);
+    z-index: 3;
+}
+
+.ground {
+    width: var(--w);
+    height: var(--h);
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    background-color: wheat;
+    z-index: 2;
+
+}
+.floating {
+    width: var(--w);
+    height: var(--h);
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    background-color: wheat;
+}
+
+.word{
+    position: absolute;
+    background-color: blue;
+    padding: 4px;
 }
