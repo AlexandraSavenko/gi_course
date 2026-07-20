@@ -106,10 +106,6 @@ const TaskTwo = () => {
             key={index}
             className={css[el.type]}
             style={{
-              // "--x": `${el.x}px`,
-              // "--y": `${el.y}px`,
-              // "--w": `${el.width}px`,
-              // "--h": `${el.height}px`,
               left: el.x,
               top: el.y,
               width: el.width,
@@ -119,15 +115,7 @@ const TaskTwo = () => {
           ></div>
         ))}
         <TaskTwoWordList list={rightW}/>
-        {/* {rightW.map((el, index) => <p
-        className={css.word}
-        key={index}
-        style={{
-          top: el.y,
-          left: el.x
-        }}
-        >my word</p> )} */}
-        {wrongW.map((el,index) => <p className={css.wrongWrod} style={{top: el.y, left: el.x}} key={index}>word</p> )}
+        <TaskTwoWordList list={wrongW}/>
       </div>
     </div>
   );

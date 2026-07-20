@@ -1,6 +1,6 @@
 import css from './TaskTwo.module.css'
 
-const TaskTwoWordList = (list) => {
+const TaskTwoWordList = ({list}) => {
   return ( <ul>
     {list.map((el, index) => <li
             className={css.word}
@@ -11,7 +11,6 @@ const TaskTwoWordList = (list) => {
             }}
             >my word</li> )}
   </ul>
-    
   )
 }
 
