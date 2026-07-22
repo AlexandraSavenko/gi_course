@@ -27,7 +27,7 @@ const WordList = ({ verbs, selectable }) => {
             {selectable ? (
               <input
                 type="checkbox"
-                checked={checkedVerbs.includes(el.id)}
+                checked={checkedVerbs.some(verb => verb.id === el.id)}
                 value={el.id}
                 onChange={(e) => handleToggle(e, el)}
               />

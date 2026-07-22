@@ -2,7 +2,8 @@ import React from "react";
 import buildWords from "./buildWords";
 
 const buildLevel = (levelTemplate, selectedWords, targetType) => {
-  return {
+
+    return {
     platforms: levelTemplate.platforms,
     enemies: levelTemplate.enemies,
     words: buildWords(

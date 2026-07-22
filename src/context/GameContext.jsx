@@ -1,4 +1,4 @@
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useEffect } from "react";
 import {} from "react";
 
 export const GameContext = createContext();
@@ -7,18 +7,29 @@ export const GameContext = createContext();
 //     Consumer: ...
 // }
 
-const initialState = {
+const defaultState = {
   selectedWords: [],
   targetType: "",
+  currentTask: 1,
+  completedWords: [],
   score: 0,
   lives: 3,
   level: 1,
 };
 
+const initialState = () => {
+  const saved = localStorage.getItem("game");
+  return saved ? JSON.parse(saved) : defaultState;
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "NEW_GAME":
-      return { ...initialState, ...action.payload };
+      return { ...initialState(), ...action.payload };
+    case "RESET_GAME":
+      return {
+        ...defaultState,
+      };
     case "ADD_VERB":
       return {
         ...state,
@@ -36,7 +47,10 @@ const reducer = (state, action) => {
   }
 };
 const GameProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, undefined, initialState);
+  useEffect(() => {
+    localStorage.setItem("game", JSON.stringify(state));
+  }, [state]);
   return (
     <GameContext.Provider value={{ state, dispatch }}>
       {children}
