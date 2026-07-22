@@ -11,7 +11,10 @@ const initialState = {
   selectedWords: [],
   targetType: "",
   completedWords: [],
-  currentTask: 1,
+  score: 0,
+  lives: 3,
+  
+
 };
 
 const reducer = (state, action) => {

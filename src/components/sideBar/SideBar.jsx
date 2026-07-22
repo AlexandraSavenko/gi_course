@@ -12,7 +12,6 @@ const SideBar = ({ type }) => {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(GameContext);
   const selectedLength = state.selectedWords.length;
-  useEffect(() => {console.log(state)}, [selectedLength])
   const handleModalOpen = () => {
     dispatch({
       type: "NEW_GAME",
