@@ -1,15 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import css from "./TaskTwo.module.css";
-import { levels, playerData } from "../../data/constants";
+import { gameState, levels, playerData } from "../../data/constants";
 import TaskTwoWordList from "./TaskTwoWordList";
 import applyKeyboardInput from "../../utils/useKeyboard";
 import movePlayer from "../../utils/movePlayer";
 import handlePlatformCollision from "../../utils/handlePlatformCollision";
 import handleFloor from "../../utils/handleFloor";
+import { GameContext } from "../../context/GameContext";
 
 const TaskTwo = () => {
+
+  const { state } = useContext(GameContext);
+  const selected = state.selectedWords
+
   const [player, setPlayer] = useState(playerData);
-  const platforms = levels[0].platforms;
+  const game = gameState;
+  const platforms = levels[game.level - 1].platforms;
   const rightW = levels[0].rightWords;
   const wrongW = levels[0].wrongWords;
   const keys = useRef({});

@@ -5,22 +5,15 @@ import { GameContext } from "../../context/GameContext";
 const WordList = ({ verbs, selectable }) => {
   const { state, dispatch } = useContext(GameContext);
   const checkedVerbs = state.selectedWords;
-  const handleToggle = (e) => {
-    const {value, checked} = e.target
+  const handleToggle = (e, verb) => {
+    const {checked} = e.target
     if(checked && checkedVerbs.length >= 10){
         return;
-    }
-    if (checked) {
-      dispatch({
-        type: "ADD_VERB",
-        payload: value,
+    } 
+    dispatch({
+        type: checked ? "ADD_VERB" : "REMOVE_VERB",
+        payload: verb,
       });
-    } else {
-      dispatch({
-        type: "REMOVE_VERB",
-        payload: value,
-      });
-    }
   };
 
   if (!verbs) {
@@ -36,7 +29,7 @@ const WordList = ({ verbs, selectable }) => {
                 type="checkbox"
                 checked={checkedVerbs.includes(el.id)}
                 value={el.id}
-                onChange={handleToggle}
+                onChange={(e) => handleToggle(e, el)}
               />
             ) : null}
             {el.verb}

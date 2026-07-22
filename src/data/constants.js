@@ -13,7 +13,6 @@ export let gameState = {
   level: 1,
   lives: 3,
   gameRunning: true,
-  keys: {},
 };
 
 //Player object
