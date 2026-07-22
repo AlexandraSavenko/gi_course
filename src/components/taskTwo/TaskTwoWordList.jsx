@@ -7,7 +7,8 @@ const TaskTwoWordList = ({list}) => {
             key={index}
             style={{
               top: el.y,
-              left: el.x
+              left: el.x,
+              color: 'white'
             }}
             >my word</li> )}
   </ul>

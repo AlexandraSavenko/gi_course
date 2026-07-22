@@ -7,14 +7,6 @@ export const gameCnst = {
   floor: 480,
 };
 
-//Game state
-export let gameState = {
-  score: 0,
-  level: 1,
-  lives: 3,
-  gameRunning: true,
-};
-
 //Player object
 export let playerData = {
   x: 30,
@@ -24,14 +16,6 @@ export let playerData = {
   velocityX: 0,
   velocityY: 0,
   grounded: true,
-};
-
-//Game objects arrays
-export let gameObjects = {
-  platforms: [],
-  enemies: [],
-  rightWords: [],
-  wrongWords: [],
 };
 
 //levels
@@ -52,16 +36,20 @@ export const levels = [
       { x: 250, y: 344, type: "brown" },
       { x: 550, y: 344, type: "brown" },
     ],
-    rightWords: [
+    wordPosition: [
       { x: 420, y: 380 },
       { x: 220, y: 260 },
       { x: 420, y: 160 },
       { x: 20, y: 160 },
       { x: 240, y: 60 },
+
+       { x: 350, y: 220 },
+        { x: 460, y: 250 },
+        { x: 110, y: 300 },
+        { x: 310, y: 80 },
+        { x: 50, y: 380 },
     ],
-    wrongWords: [
-      { x: 350, y: 220 },
-      { x: 750, y: 240 },
-    ],
+    exitPosition: [],
+    background: "img"
   },
 ];

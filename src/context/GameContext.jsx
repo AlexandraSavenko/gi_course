@@ -10,11 +10,9 @@ export const GameContext = createContext();
 const initialState = {
   selectedWords: [],
   targetType: "",
-  completedWords: [],
   score: 0,
   lives: 3,
-  
-
+  level: 1,
 };
 
 const reducer = (state, action) => {

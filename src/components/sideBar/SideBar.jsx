@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ButtonMax from "../buttonMax/ButtonMax";
 import Modal from "../modal/Modal";
 import css from "./SideBar.module.css";
