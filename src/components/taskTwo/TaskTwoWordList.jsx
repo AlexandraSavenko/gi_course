@@ -10,7 +10,7 @@ const TaskTwoWordList = ({list}) => {
               left: el.x,
               color: 'white'
             }}
-            >my word</li> )}
+            >{el.verb}</li> )}
   </ul>
   )
 }
